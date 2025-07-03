@@ -8,6 +8,10 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+/*
+The task adapter is used when populating elements on the screen with data about tasks
+For example populating the task list on the main screen
+ */
 class TaskAdapter(
     val taskList: MutableList<Task>,
     private val onItemClick: (Task) -> Unit,
@@ -34,7 +38,6 @@ class TaskAdapter(
         holder.textDescription.text = task.description
         holder.checkBox.isChecked = task.isCompleted
 
-        // Prevents recycling bug
         holder.checkBox.setOnCheckedChangeListener(null)
         holder.checkBox.isChecked = task.isCompleted
         holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
